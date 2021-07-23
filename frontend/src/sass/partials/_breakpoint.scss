@@ -1,0 +1,39 @@
+// Media Query
+
+@mixin breakpoint($size) {
+  
+  // For 599px and below --> sm
+  @if $size == sm {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } 
+  
+  // For 600px to 899px --> md
+  @else if $size == md {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } 
+  
+  // For 900px to 1199px --> lg
+  @else if $size == lg {
+    @media (min-width: 900px) {
+      @content;
+    }
+  }
+
+  // For 1200px to 1799px --> xl
+  @else if $size == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  // For 1800px and above -- xxl
+  @else if $size == xxl {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}

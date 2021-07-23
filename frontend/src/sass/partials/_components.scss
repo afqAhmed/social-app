@@ -1,0 +1,24 @@
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px #3d3c3c;
+  transition: 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0 0 30px #3d3c3c;
+  }
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 16px;
+  
+  &:focus {
+    outline: none;
+  }
+}
