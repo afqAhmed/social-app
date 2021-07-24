@@ -26,31 +26,18 @@ const App = () => {
   }
 
   return (
-    <AppContext.Provider value={addFlashMessages}>
+    <AppContext.Provider value={{ flashMsg: addFlashMessages, login: setLoggedIn }}>
       <BrowserRouter>
-        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Header loggedIn={loggedIn} />
         <Route>
           <FlashMessages flashMessages={flashMessages} />
         </Route>
         <Switch>
-          <Route path="/" exact>
-            {' '}
-            {loggedIn ? <Home /> : <HomeGuest />}{' '}
-          </Route>
-          <Route path="/create-post">
-            <CreatePost />{' '}
-          </Route>
-          <Route path="/post/:id">
-            <SinglePost />
-          </Route>
-          <Route path="/about-us" exact>
-            {' '}
-            <About />{' '}
-          </Route>
-          <Route path="/terms" exact>
-            {' '}
-            <Terms />{' '}
-          </Route>
+          <Route path="/" exact> {loggedIn ? <Home /> : <HomeGuest />}</Route>
+          <Route path="/create-post"><CreatePost /></Route>
+          <Route path="/post/:id"><SinglePost /></Route>
+          <Route path="/about-us" exact><About /></Route>
+          <Route path="/terms" exact><Terms /></Route>
         </Switch>
         <Footer />
       </BrowserRouter>

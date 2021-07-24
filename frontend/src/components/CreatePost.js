@@ -7,13 +7,13 @@ import Page from './Page'
 const CreatePost = (props) => {
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
-  const flashMsg = useContext(AppContext)
+  const { flashMsg } = useContext(AppContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await Axios.post('/create-post', { title, body, token: localStorage.getItem('appToken') } )
-      flashMsg('Post created successfully')
+      flashMsg ('Post created successfully')
       props.history.push(`/post/${response.data}`)
       console.log('Congrats! Post created successfully.')
     } catch (error) {

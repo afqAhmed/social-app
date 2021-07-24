@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AppContext from '../AppContext'
 
-const LoggedIn = (props) => {
+const LoggedIn = () => {
+  const { login } = useContext(AppContext)
+
   const handleLogout = () => {
-    props.setLoggedIn(false)
+    login (false)
     localStorage.removeItem('appToken')
     localStorage.removeItem('appUsername')
     localStorage.removeItem('appAvatar')
