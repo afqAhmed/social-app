@@ -12,10 +12,7 @@ const LoggedOut = () => {
     try {
       const response = await Axios.post('/login', { username, password })
       if (response.data) {
-        localStorage.setItem('appToken', response.data.token)
-        localStorage.setItem('appUsername', response.data.username)
-        localStorage.setItem('appAvatar', response.data.avatar)
-        appDispatch({ type: 'login' })
+        appDispatch({ type: 'login', data: response.data  })
         console.log('Congrats! Login Susscessful')
       } else {
         console.log('Sorry! Invalid username/password')
