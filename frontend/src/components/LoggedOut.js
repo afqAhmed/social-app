@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react'
 import Axios from 'axios'
-import AppContext from '../AppContext'
+import DispatchContext from '../DispatchContext'
 
 const LoggedOut = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { login } = useContext(AppContext)
+  const appDispatch = useContext(DispatchContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,7 +15,8 @@ const LoggedOut = () => {
         localStorage.setItem('appToken', response.data.token)
         localStorage.setItem('appUsername', response.data.username)
         localStorage.setItem('appAvatar', response.data.avatar)
-        login(true)
+        appDispatch({ type: 'logout' })
+        // login(true)
         console.log('Congrats! Login Susscessful')
       } else {
         console.log('Sorry! Invalid username/password')
