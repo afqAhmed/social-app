@@ -15,8 +15,7 @@ const LoggedOut = () => {
         localStorage.setItem('appToken', response.data.token)
         localStorage.setItem('appUsername', response.data.username)
         localStorage.setItem('appAvatar', response.data.avatar)
-        appDispatch({ type: 'logout' })
-        // login(true)
+        appDispatch({ type: 'login' })
         console.log('Congrats! Login Susscessful')
       } else {
         console.log('Sorry! Invalid username/password')

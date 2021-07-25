@@ -6,8 +6,7 @@ const LoggedIn = () => {
   const appDispatch = useContext(DispatchContext)
 
   const handleLogout = () => {
-    // login (false)
-    appDispatch({ type: 'login' })
+    appDispatch({ type: 'logout' })
     localStorage.removeItem('appToken')
     localStorage.removeItem('appUsername')
     localStorage.removeItem('appAvatar')
