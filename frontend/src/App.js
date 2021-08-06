@@ -13,6 +13,7 @@ import SinglePost from './components/SinglePost'
 import Footer from './components/Footer'
 import About from './components/About'
 import Terms from './components/Terms'
+import Profile from './components/Profile'
 
 // Import Context API
 import StateContext from './StateContext'
@@ -70,6 +71,7 @@ const App = () => {
             <Route path="/" exact> {state.loggedIn ? <Home /> : <HomeGuest />}</Route>
             <Route path="/create-post"><CreatePost /></Route>
             <Route path="/post/:id"><SinglePost /></Route>
+            <Route path="/profile/:username"><Profile/></Route>
             <Route path="/about-us"><About /></Route>
             <Route path="/terms"><Terms /></Route>
           </Switch>
